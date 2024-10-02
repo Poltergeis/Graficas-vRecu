@@ -1,0 +1,1 @@
+pip install kivy pandas numpy kivymd
