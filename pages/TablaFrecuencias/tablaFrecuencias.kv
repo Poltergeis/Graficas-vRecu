@@ -1,0 +1,53 @@
+<TablaFrecuencias>:
+    canvas.before:
+        Color:
+            rgba: (0.02, 0.11, 0.13, 1)
+        Rectangle:
+            pos: root.pos
+            size: root.size
+    Label:
+        id: label_tabla_titulo
+        text: ''
+        font_size: 40
+        bold: True
+        center_x: root.width / 2
+        top: root.top * 0.95
+
+    BoxLayout:
+        id: table_box  # Aquí añadiremos la tabla
+        orientation: 'vertical'
+        top: root.top * 0.87
+        center_x: root.center_x
+        width: root.width * 0.9
+
+    Button:
+        id: boton_mostrar_ojiva
+        text: 'ojiva'
+        width: root.width * 0.15
+        center_x: root.center_x * 0.15
+        top: root.top * 0.2
+        on_press: root.ojiva()
+
+    Button:
+        id: boton_mostrar_histograma
+        text: 'histograma'
+        width: root.width * 0.15
+        center_x: root.center_x * 0.65
+        top: root.top * 0.2
+        on_press: root.histograma()
+
+    Button:
+        id: boton_mostrar_circular
+        text: 'diagrama circular'
+        width: root.width * 0.15
+        top: root.top * 0.2
+        center_x: root.center_x * 1.15
+        on_press: root.graficaCircular()
+
+    Button:
+        id: boton_mostrar_polFrec
+        text: 'poligono de frecuencias'
+        width: root.width * 0.15
+        top: root.top * 0.2
+        center_x: root.center_x * 1.75
+        on_press: root.graficaPolFrec()

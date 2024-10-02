@@ -1,0 +1,74 @@
+<ConfirmData>:
+    canvas.before:
+        Color:
+            rgba: (0.02, 0.11, 0.13, 1)
+        Rectangle:
+            pos: root.pos
+            size: root.size
+
+    Label:
+        text: 'Elige el conjunto de datos que quieres cargar'
+        width: root.width * 0.5
+        center_x: root.width / 2
+        top: root.top * 0.9
+        font_size: 54
+        bold: True
+
+    Spinner:
+        id: selector_columna_datos
+        text: 'default'
+        values: []
+        width: root.width * 0.35
+        center_x: root.width / 2
+        top: root.top * 0.75
+        on_text: root.selectDatos(self.text)
+
+    ScrollView:
+        width: root.width * 0.8
+        height: root.height * 0.25
+        center_x: root.width / 2
+        top: root.top * 0.60
+
+        Label:
+            id: label_datos_vista_previa
+            text: 'estos son los datos cargados:'
+            size_hint_y: None
+            height: self.texture_size[1]
+            font_size: 34
+            text_size: self.width, None
+
+    Label:
+        id: label_tipo_datos
+        text: 'tipo de datos:'
+        font_size: 25
+        center_x: root.width / 2
+        top: root.top * 0.35
+
+    Label:
+        id: label_consejo_distribucion
+        text: 'se ha detectado una gran cantidad de datos demasiado dispersos, sugerimos calcular distribucion por clases'
+        font_size: 25
+        center_x: root.width * 2
+        width: root.width * 0.6
+        top: root.top * 0.3
+        text_size: self.width, None
+
+    Button:
+        id: boton_distribucion_directa
+        text: 'calcular tabla de frecuencias directa'
+        width: root.width * 2 / 7
+        center_x: root.width * 2
+        top: root.top * 0.17
+        height: root.height * 0.07
+        font_size: 25
+        on_press: root.siguientePagina(1)
+
+    Button:
+        id: boton_distribucion_agrupada
+        text: 'calcular tabla de frecuencias agrupada'
+        width: root.width * 2 / 7
+        center_x: root.width * 2
+        top: root.top * 0.17
+        height: root.height * 0.07
+        font_size: 25
+        on_press: root.siguientePagina(2)

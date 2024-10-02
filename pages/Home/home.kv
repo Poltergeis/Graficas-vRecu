@@ -1,0 +1,64 @@
+#:kivy 1.0.9
+<Home>:
+    canvas.before:
+        Color:
+            rgba: (0.02, 0.11, 0.13, 1)
+        Rectangle:
+            pos: root.pos
+            size: root.size
+    Label:
+        text: 'calculadora grafica'
+        width: root.width * 0.3
+        center_x: root.width / 2
+        top: root.top * 0.9
+        font_size: '34sp'
+        bold: True
+
+    TextInput:
+        id: numeros_input
+        hint_text: 'ingresa los datos manualmente aqui'
+        width: root.width * 0.65
+        height: root.height *0.09
+        center_x: root.width / 2
+        top: root.top * 0.75
+        font_size: '22sp'
+        on_text: root.checarInput(self.text)
+        on_text_validate: root.cargarDatosManuales()
+
+    Label:
+        id: label_error_datos_manuales
+        color: 0.9, 0.23, 0.34, 1
+        text:'porfavor ingresa los valores separados por comas y sin espacios'
+        width: root.width * 0.7
+        center_x: root.width * 2
+        top: root.top * 0.65
+        font_size: '22sp'
+
+    Button:
+        text: 'cargar datos desde excel'
+        width: root.width * 2 / 7
+        center_x: root.width / 2
+        top: root.top * 0.5
+        font_size: '19sp'
+        on_press: root.cargarExcel()
+
+    Button:
+        text: 'cargar datos desde csv'
+        width: root.width * 2 / 7
+        center_x: root.width / 2
+        top: root.top * 0.35
+        font_size: '19sp'
+        on_press: root.cargarCSV()
+
+    Button:
+        id: boton_carga_manual
+        disabled: True
+        text: 'cargar datos ingresados manualmente'
+        width: root.width * 2 / 7
+        center_x: root.width / 2
+        top: root.top * 0.2
+        font_size: '19sp'
+        text_size: self.width * 0.9, None
+        valign: 'center'
+        halign: 'center'
+        on_press: root.cargarDatosManuales()

@@ -1,0 +1,23 @@
+<VistaGrafica>:
+    canvas.before:
+        Color:
+            rgba: (0.02, 0.11, 0.13, 1)
+        Rectangle:
+            pos: root.pos
+            size: root.size
+
+    BoxLayout:
+        id: grafica_container
+        orientation:'vertical'
+        width: root.width * 0.85
+        center_x: root.center_x
+        height: root.height * 0.8
+        top: root.top * 0.9
+
+    Button:
+        text:'volver'
+        width: root.width * 0.3
+        center_x: root.center_x
+        top: root.top * 0.2
+        font_size: 20
+        on_press: root.volver()
